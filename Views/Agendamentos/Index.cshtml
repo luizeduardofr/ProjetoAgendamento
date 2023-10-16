@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProjetoAgendamento.Models.Agendamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Agendamentos</h1>
+<br>
+<a asp-action="Create"><input type="submit" value="Novo Agendamento" class="btn btn-primary bg-success border-0" /></a>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dataDisponivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.funcionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.servico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataDisponivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.funcionario.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servico.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliente.cpf)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id"><input type="submit" value="Editar" class="btn btn-primary bg-warning text-dark border-0" /></a> |
+                <a asp-action="Details" asp-route-id="@item.id"><input type="submit" value="Detalhar" class="btn btn-primary border-0" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.id"><input type="submit" value="Excluir" class="btn btn-primary bg-danger border-0" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model ProjetoAgendamento.Models.Agendamento
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Novo Agendamento</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="dataDisponivel" class="control-label"></label>
+                <input asp-for="dataDisponivel" class="form-control" />
+                <span asp-validation-for="dataDisponivel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="funcionarioID" class="control-label"></label>
+                <select asp-for="funcionarioID" class ="form-control" asp-items="ViewBag.funcionarioID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="servicoID" class="control-label"></label>
+                <select asp-for="servicoID" class ="form-control" asp-items="ViewBag.servicoID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="clienteID" class="control-label"></label>
+                <select asp-for="clienteID" class ="form-control" asp-items="ViewBag.clienteID"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary border-0 bg-success" style="width: 6rem" /> |
+                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 6rem" /></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
