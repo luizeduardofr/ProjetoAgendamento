@@ -21,6 +21,15 @@ body {
   margin-bottom: 60px;
 }
 
+.home h2 {
+    color: hotpink;
+    text-align: center;
+}
+
+.home p {
+    text-align: center;
+}
+
 footer {
     text-align: center;
 }
